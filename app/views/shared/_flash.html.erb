@@ -1,0 +1,14 @@
+<% if flash.now[:notice] %>
+<!--without .now flash message would persist one time after/ only works on current page/ .now is an infrequent use -->
+<div class="alert alert-info" role="alert" mt-4>
+  <%= flash[:notice].inspect %>
+  <!-- USE <%= flash[:notice].inspect %> to find nil value to debug -->
+</div>
+<% end %>
+<!--no = used after % if you don't want to print out the value inside brackets in html  -->
+
+<% if flash.now[:alert] %>
+<div class="alert alert-warning" role="alert" mt-4>
+  <%= flash[:alert] %>
+</div>
+<% end %>
