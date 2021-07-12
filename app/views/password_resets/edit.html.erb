@@ -1,6 +1,7 @@
-<h1>Sign up</h1>
+<h1>Reset Password</h1>
 
-<%= form_with model: @user, url: sign_up_path do |form| %>
+<%= form_with model: @user, url: password_reset_edit_path(token: params[:token]) do |form| %>
+<!--need to add model to form bc errors are kept inside model record -->
 <% if form.object.errors.any? %>
 <div class="alert alert-danger">
   <% form.object.errors.full_messages.each do |message| %>
@@ -8,10 +9,6 @@
   <% end %>
 </div>
 <% end %>
-<div class="mb-3">
-  <%= form.label :email %>
-  <%= form.text_field :email, class: "form-control", placeholder: "name@email.com"%>
-</div>
 <div class="mb-3">
   <%= form.label :password %>
   <%= form.password_field :password, class: "form-control", placeholder: "password" %>
@@ -21,8 +18,6 @@
   <%= form.password_field :password_confirmation, class: "form-control", placeholder: "password"  %>
 </div>
 <div class="mb-3">
-  <%= form.submit class: "btn btn-primary" %>
-  <!--infers and displays New User (or Update Model) unless text is passed to display in button, eg
- <%= form.submit "Sign Up" %>-->
+  <%= form.submit "Update Password", class: "btn btn-primary" %>
 </div>
 <% end %>
