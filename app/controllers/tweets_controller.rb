@@ -13,5 +13,18 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new
   end
 
+  def create
+    @tweet = Current.user.tweets.new(tweet_params)
+    if @tweet.save
+      redirect_to tweets_path, notice: "Tweet scheduled successfully"
+    else
+      render :new
+    end
+  end
   
+  private
+
+  def tweet_params
+    params.require(:tweet).permit(:published_at, :body, :twitter_account_id)
+  end
 end
