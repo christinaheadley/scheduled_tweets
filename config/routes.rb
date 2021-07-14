@@ -24,6 +24,8 @@ Rails.application.routes.draw do
 
   resources :twitter_accounts
 
+  resources :tweets
+
   # EXAMPLE HTML ROUTE
   # get "/photos" => "photos#index"
 
