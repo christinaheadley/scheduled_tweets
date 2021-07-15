@@ -60,5 +60,3 @@ gem 'marcel', '~> 1.0'
 
 gem "omniauth-twitter", "~> 1.4"
 gem "omniauth-rails_csrf_protection", "~> 1.0"
-
-gem "twitter", "~> 4.8"
